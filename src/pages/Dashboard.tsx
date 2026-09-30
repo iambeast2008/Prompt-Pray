@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { student } from '../data/student';
 import { getSubject } from '../data/subjects';
@@ -21,7 +22,7 @@ export default function Dashboard() {
   const recentMissed = missedClasses.slice(0, 2);
   const activeAssignments = assignments.filter(a => a.status !== 'completed').slice(0, 3);
 
-  const hour = new Date().getHours();
+  const [hour] = useState(() => new Date().getHours());
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
 
   const sortedRecords = [...attendanceRecords].sort((a, b) => {

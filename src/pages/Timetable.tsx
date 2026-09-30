@@ -4,7 +4,7 @@ import { weekdays, getClassesByDay } from '../data/timetable';
 
 export default function Timetable() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const todayName = days[new Date().getDay()];
+  const [todayName] = useState(() => days[new Date().getDay()]);
   const defaultDay = weekdays.includes(todayName) ? todayName : 'Monday';
   const [selectedDay, setSelectedDay] = useState(defaultDay);
   const [expandedId, setExpandedId] = useState<string | null>(null);

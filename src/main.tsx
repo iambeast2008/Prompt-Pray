@@ -1,23 +1,16 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { isLoggedIn } from './auth';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 
 import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Timetable from './pages/Timetable';
 import Attendance from './pages/Attendance';
 import CatchUp from './pages/CatchUp';
 import Assignments from './pages/Assignments';
-
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  if (!isLoggedIn()) {
-    return <Navigate to="/login" replace />;
-  }
-  return <>{children}</>;
-}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
