@@ -70,7 +70,7 @@ export default function Dashboard() {
             View details →
           </Link>
         </div>
-        <div className="bg-surface border border-border rounded-lg overflow-hidden">
+        <div className="bg-surface border border-border rounded-lg overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-border bg-muted-surface">

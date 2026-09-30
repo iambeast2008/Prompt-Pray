@@ -21,7 +21,7 @@ export default function Assignments() {
       </div>
 
       {/* Filter */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {(['all', 'due-soon', 'upcoming', 'completed'] as const).map(f => (
           <button
             key={f}
