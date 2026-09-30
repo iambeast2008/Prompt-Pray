@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { logout } from '../auth';
 import { student } from '../data/student';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { to: '/', label: 'Overview', icon: 'grid' },
@@ -65,7 +66,7 @@ export default function Layout() {
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-blue-50 text-primary-blue'
+                    ? 'bg-blue-50 dark:bg-primary-blue/10 text-primary-blue'
                     : 'text-secondary-text hover:bg-muted-surface hover:text-primary-text'
                 }`
               }
@@ -97,18 +98,25 @@ export default function Layout() {
       </aside>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 relative">
         {/* Top bar for mobile */}
-        <header className="lg:hidden bg-surface border-b border-border px-4 py-3 flex items-center gap-3">
-          <button onClick={() => setMobileMenuOpen(true)} className="p-1 text-secondary-text">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-          </button>
-          <h1 style={{ fontFamily: '"DM Serif Display", serif' }} className="text-lg text-primary-text">
-            PRESENT
-          </h1>
+        <header className="lg:hidden bg-surface border-b border-border px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <button onClick={() => setMobileMenuOpen(true)} className="p-1 text-secondary-text">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
+            <h1 style={{ fontFamily: '"DM Serif Display", serif' }} className="text-lg text-primary-text">
+              PRESENT
+            </h1>
+          </div>
+          <ThemeToggle />
         </header>
 
         <main className="flex-1 overflow-y-auto">
+          {/* ThemeToggle for desktop */}
+          <div className="absolute top-4 right-4 z-10 hidden lg:block">
+            <ThemeToggle />
+          </div>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
             <Outlet />
           </div>

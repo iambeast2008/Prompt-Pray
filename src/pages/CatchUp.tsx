@@ -49,7 +49,7 @@ export default function CatchUp() {
                     Missed on {mc.date} · {mc.time}
                   </p>
                 </div>
-                <span className="inline-flex px-2 py-0.5 bg-red-50 text-danger-red rounded text-xs font-medium">
+                <span className="inline-flex px-2 py-0.5 bg-red-50 text-danger-red dark:bg-red-900/20 rounded text-xs font-medium">
                   Missed
                 </span>
               </div>

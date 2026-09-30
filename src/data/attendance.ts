@@ -50,9 +50,9 @@ export function getStatusColor(status: AttendanceStatus): string {
 
 export function getStatusBgColor(status: AttendanceStatus): string {
   switch (status) {
-    case 'safe': return 'bg-green-50 text-success-green';
-    case 'warning': return 'bg-amber-50 text-warning-amber';
-    case 'below': return 'bg-red-50 text-danger-red';
+    case 'safe': return 'bg-green-50 text-success-green dark:bg-green-900/20';
+    case 'warning': return 'bg-amber-50 text-warning-amber dark:bg-amber-900/20';
+    case 'below': return 'bg-red-50 text-danger-red dark:bg-red-900/20';
   }
 }
 

@@ -50,8 +50,8 @@ export function getStatusLabel(status: AssignmentStatus): string {
 
 export function getStatusStyle(status: AssignmentStatus): string {
   switch (status) {
-    case 'due-soon': return 'bg-red-50 text-danger-red';
-    case 'upcoming': return 'bg-blue-50 text-primary-blue';
-    case 'completed': return 'bg-green-50 text-success-green';
+    case 'due-soon': return 'bg-red-50 text-danger-red dark:bg-red-900/20';
+    case 'upcoming': return 'bg-blue-50 text-primary-blue dark:bg-blue-900/20';
+    case 'completed': return 'bg-green-50 text-success-green dark:bg-green-900/20';
   }
 }
